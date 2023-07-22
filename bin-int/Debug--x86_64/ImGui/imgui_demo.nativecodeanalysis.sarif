@@ -1,0 +1,581 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C33010",
+          "message": {
+            "text": "Unchecked lower bound for enum key used as index.."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                },
+                "region": {
+                  "startLine": 5938,
+                  "startColumn": 102,
+                  "endLine": 5938,
+                  "endColumn": 126
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ShowDemoWindowInputs::funcs::IsLegacyNativeDupe",
+                  "decoratedName": "?IsLegacyNativeDupe@funcs@?BA@??ShowDemoWindowInputs@@YAXXZ@SA_NW4ImGuiKey@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 5938,
+                            "startColumn": 40
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 5938,
+                            "startColumn": 86
+                          }
+                        },
+                        "message": {
+                          "text": "Branching based on condition 'key < 512'. 'true' branch is taken\nEnum value 'key' is checked for upper bound."
+                        }
+                      },
+                      "kinds": [
+                        "Combination"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 5938,
+                            "startColumn": 102
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 5938,
+                            "startColumn": 122
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "Dereferencing NULL pointer 'p_open'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                },
+                "region": {
+                  "startLine": 8088,
+                  "startColumn": 18,
+                  "endLine": 8088,
+                  "endColumn": 27
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ShowExampleAppDockSpace",
+                  "decoratedName": "?ShowExampleAppDockSpace@@YAXPEA_N@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8016,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8017,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8018,
+                            "startColumn": 31
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8022,
+                            "startColumn": 22
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8023,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8036,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8041,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8049,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8051,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8052,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8055,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8059,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8060,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8067,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8070,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8072,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8076,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8077,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8078,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8080,
+                            "startColumn": 32
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8081,
+                            "startColumn": 32
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8082,
+                            "startColumn": 32
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8083,
+                            "startColumn": 32
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8084,
+                            "startColumn": 32
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8085,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8087,
+                            "startColumn": 32
+                          }
+                        },
+                        "message": {
+                          "text": "'p_open' may be NULL (Enter this branch)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+                          },
+                          "region": {
+                            "startLine": 8088,
+                            "startColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "'p_open' is dereferenced, but may still be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32215.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/dev/VeryCoolEngine/VeryCoolEngine/vendor/imgui/imgui_demo.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "dac56844525a82747d7a346d54845a759e4a31fa6c9d53e2606def39a5e5fce7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/dev/verycoolengine/verycoolengine/vendor/imgui/imgui.h"
+          },
+          "hashes": {
+            "sha-256": "2a0f6a327761e20ac34ea2d70e45e7a7d53be55d99de07c02e08d89e9295dd1e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/dev/verycoolengine/verycoolengine/vendor/imgui/imconfig.h"
+          },
+          "hashes": {
+            "sha-256": "c51306af988faf60a79adab9933472e08de161cca54e0ab37824a56435a69fd0"
+          }
+        }
+      ]
+    }
+  ]
+}
