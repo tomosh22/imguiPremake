@@ -4472,7 +4472,7 @@ static int equal(float *a, float *b)
    return (a[0] == b[0] && a[1] == b[1]);
 }
 
-static int stbtt__compute_crossings_x(float x, float y, int nverts, stbtt_vertex *verts)
+static int stbtt__compute_crossings_x(float x, float y, int nverts, stbtt_vertex *m_pVerts)
 {
    int i;
    float orig[2], ray[2] = { 1, 0 };
@@ -4491,19 +4491,19 @@ static int stbtt__compute_crossings_x(float x, float y, int nverts, stbtt_vertex
 
    // test a ray from (-infinity,y) to (x,y)
    for (i=0; i < nverts; ++i) {
-      if (verts[i].type == STBTT_vline) {
-         int x0 = (int) verts[i-1].x, y0 = (int) verts[i-1].y;
-         int x1 = (int) verts[i  ].x, y1 = (int) verts[i  ].y;
+      if (m_pVerts[i].type == STBTT_vline) {
+         int x0 = (int) m_pVerts[i-1].x, y0 = (int) m_pVerts[i-1].y;
+         int x1 = (int) m_pVerts[i  ].x, y1 = (int) m_pVerts[i  ].y;
          if (y > STBTT_min(y0,y1) && y < STBTT_max(y0,y1) && x > STBTT_min(x0,x1)) {
             float x_inter = (y - y0) / (y1 - y0) * (x1-x0) + x0;
             if (x_inter < x)
                winding += (y0 < y1) ? 1 : -1;
          }
       }
-      if (verts[i].type == STBTT_vcurve) {
-         int x0 = (int) verts[i-1].x , y0 = (int) verts[i-1].y ;
-         int x1 = (int) verts[i  ].cx, y1 = (int) verts[i  ].cy;
-         int x2 = (int) verts[i  ].x , y2 = (int) verts[i  ].y ;
+      if (m_pVerts[i].type == STBTT_vcurve) {
+         int x0 = (int) m_pVerts[i-1].x , y0 = (int) m_pVerts[i-1].y ;
+         int x1 = (int) m_pVerts[i  ].cx, y1 = (int) m_pVerts[i  ].cy;
+         int x2 = (int) m_pVerts[i  ].x , y2 = (int) m_pVerts[i  ].y ;
          int ax = STBTT_min(x0,STBTT_min(x1,x2)), ay = STBTT_min(y0,STBTT_min(y1,y2));
          int by = STBTT_max(y0,STBTT_max(y1,y2));
          if (y > ay && y < by && x > ax) {
@@ -4516,10 +4516,10 @@ static int stbtt__compute_crossings_x(float x, float y, int nverts, stbtt_vertex
             q2[0] = (float)x2;
             q2[1] = (float)y2;
             if (equal(q0,q1) || equal(q1,q2)) {
-               x0 = (int)verts[i-1].x;
-               y0 = (int)verts[i-1].y;
-               x1 = (int)verts[i  ].x;
-               y1 = (int)verts[i  ].y;
+               x0 = (int)m_pVerts[i-1].x;
+               y0 = (int)m_pVerts[i-1].y;
+               x1 = (int)m_pVerts[i  ].x;
+               y1 = (int)m_pVerts[i  ].y;
                if (y > STBTT_min(y0,y1) && y < STBTT_max(y0,y1) && x > STBTT_min(x0,x1)) {
                   float x_inter = (y - y0) / (y1 - y0) * (x1-x0) + x0;
                   if (x_inter < x)
@@ -4614,21 +4614,21 @@ STBTT_DEF unsigned char * stbtt_GetGlyphSDF(const stbtt_fontinfo *info, float sc
    {
       int x,y,i,j;
       float *precompute;
-      stbtt_vertex *verts;
-      int num_verts = stbtt_GetGlyphShape(info, glyph, &verts);
+      stbtt_vertex *m_pVerts;
+      int num_verts = stbtt_GetGlyphShape(info, glyph, &m_pVerts);
       data = (unsigned char *) STBTT_malloc(w * h, info->userdata);
       precompute = (float *) STBTT_malloc(num_verts * sizeof(float), info->userdata);
 
       for (i=0,j=num_verts-1; i < num_verts; j=i++) {
-         if (verts[i].type == STBTT_vline) {
-            float x0 = verts[i].x*scale_x, y0 = verts[i].y*scale_y;
-            float x1 = verts[j].x*scale_x, y1 = verts[j].y*scale_y;
+         if (m_pVerts[i].type == STBTT_vline) {
+            float x0 = m_pVerts[i].x*scale_x, y0 = m_pVerts[i].y*scale_y;
+            float x1 = m_pVerts[j].x*scale_x, y1 = m_pVerts[j].y*scale_y;
             float dist = (float) STBTT_sqrt((x1-x0)*(x1-x0) + (y1-y0)*(y1-y0));
             precompute[i] = (dist == 0) ? 0.0f : 1.0f / dist;
-         } else if (verts[i].type == STBTT_vcurve) {
-            float x2 = verts[j].x *scale_x, y2 = verts[j].y *scale_y;
-            float x1 = verts[i].cx*scale_x, y1 = verts[i].cy*scale_y;
-            float x0 = verts[i].x *scale_x, y0 = verts[i].y *scale_y;
+         } else if (m_pVerts[i].type == STBTT_vcurve) {
+            float x2 = m_pVerts[j].x *scale_x, y2 = m_pVerts[j].y *scale_y;
+            float x1 = m_pVerts[i].cx*scale_x, y1 = m_pVerts[i].cy*scale_y;
+            float x0 = m_pVerts[i].x *scale_x, y0 = m_pVerts[i].y *scale_y;
             float bx = x0 - 2*x1 + x2, by = y0 - 2*y1 + y2;
             float len2 = bx*bx + by*by;
             if (len2 != 0.0f)
@@ -4648,13 +4648,13 @@ STBTT_DEF unsigned char * stbtt_GetGlyphSDF(const stbtt_fontinfo *info, float sc
             float x_gspace = (sx / scale_x);
             float y_gspace = (sy / scale_y);
 
-            int winding = stbtt__compute_crossings_x(x_gspace, y_gspace, num_verts, verts); // @OPTIMIZE: this could just be a rasterization, but needs to be line vs. non-tesselated curves so a new path
+            int winding = stbtt__compute_crossings_x(x_gspace, y_gspace, num_verts, m_pVerts); // @OPTIMIZE: this could just be a rasterization, but needs to be line vs. non-tesselated curves so a new path
 
             for (i=0; i < num_verts; ++i) {
-               float x0 = verts[i].x*scale_x, y0 = verts[i].y*scale_y;
+               float x0 = m_pVerts[i].x*scale_x, y0 = m_pVerts[i].y*scale_y;
 
-               if (verts[i].type == STBTT_vline && precompute[i] != 0.0f) {
-                  float x1 = verts[i-1].x*scale_x, y1 = verts[i-1].y*scale_y;
+               if (m_pVerts[i].type == STBTT_vline && precompute[i] != 0.0f) {
+                  float x1 = m_pVerts[i-1].x*scale_x, y1 = m_pVerts[i-1].y*scale_y;
 
                   float dist,dist2 = (x0-sx)*(x0-sx) + (y0-sy)*(y0-sy);
                   if (dist2 < min_dist*min_dist)
@@ -4677,9 +4677,9 @@ STBTT_DEF unsigned char * stbtt_GetGlyphSDF(const stbtt_fontinfo *info, float sc
                      if (t >= 0.0f && t <= 1.0f)
                         min_dist = dist;
                   }
-               } else if (verts[i].type == STBTT_vcurve) {
-                  float x2 = verts[i-1].x *scale_x, y2 = verts[i-1].y *scale_y;
-                  float x1 = verts[i  ].cx*scale_x, y1 = verts[i  ].cy*scale_y;
+               } else if (m_pVerts[i].type == STBTT_vcurve) {
+                  float x2 = m_pVerts[i-1].x *scale_x, y2 = m_pVerts[i-1].y *scale_y;
+                  float x1 = m_pVerts[i  ].cx*scale_x, y1 = m_pVerts[i  ].cy*scale_y;
                   float box_x0 = STBTT_min(STBTT_min(x0,x1),x2);
                   float box_y0 = STBTT_min(STBTT_min(y0,y1),y2);
                   float box_x1 = STBTT_max(STBTT_max(x0,x1),x2);
@@ -4760,7 +4760,7 @@ STBTT_DEF unsigned char * stbtt_GetGlyphSDF(const stbtt_fontinfo *info, float sc
          }
       }
       STBTT_free(precompute, info->userdata);
-      STBTT_free(verts, info->userdata);
+      STBTT_free(m_pVerts, info->userdata);
    }
    return data;
 }
