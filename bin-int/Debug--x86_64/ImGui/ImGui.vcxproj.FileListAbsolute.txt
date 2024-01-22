@@ -1,0 +1,2 @@
+C:\dev\VeryCoolEngine\VeryCoolEngine\vendor\imgui\bin\Debug--x86_64\ImGui\ImGui.lib.lastcodeanalysissucceeded
+C:\dev\VeryCoolEngine\VeryCoolEngine\vendor\imgui\bin-int\Debug--x86_64\ImGui\NativeCodeAnalysis.read.1.tlog
